@@ -1,0 +1,17 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Rest API">
+	<test name="API TEST" preserve-order="true">
+		<parameter name="domainName" value="https://jsonplaceholder.typicode.com" />
+		<parameter name="uri" value="users" />
+		<classes>
+			<class name="com.epam.restapi.restapi.TestRunnerApi">
+				<methods>
+					<include name="checkStatusCode" />
+					<include name="checkResponseContentType" />
+					<include name="checkCountOfEmployees" />
+					<include name="printObjects" />					
+				</methods>
+			</class>
+		</classes>
+	</test>
+</suite>
