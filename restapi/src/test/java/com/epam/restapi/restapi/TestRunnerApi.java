@@ -18,21 +18,23 @@ public class TestRunnerApi {
 	Response response = null;
 
 	@BeforeClass
-	@Parameters({ "domainName", "uri" })
-	public void setUri(String domainName, String uri) {
+	@Parameters({ "domainName", "endpoint" })
+	public void setUri(String domainName, String endpoint) {
 		RestAssured.baseURI = domainName;
-		response = RestAssured.given().get("/" + uri).andReturn();
+		response = RestAssured.given().get("/" + endpoint).andReturn();
 	}
 
 	@Test
-	public void verifyStatusCode() {
-		Assert.assertEquals(response.getStatusCode(), 200);
+	@Parameters({ "statusCode" })
+	public void verifyStatusCode(int statusCode) {
+		Assert.assertEquals(response.getStatusCode(), statusCode);
 	}
 
 	@Test
-	public void verifyResponseContentType() {
-		String valueOfContentTypeHeader = response.getHeader("content-type");
-		Assert.assertTrue(valueOfContentTypeHeader.contains("application/json; charset=utf-8"));
+	@Parameters({ "headerKey", "headerValue" })
+	public void verifyResponseContentType(String headerKey, String headerValue) {
+		String valueOfContentTypeHeader = response.getHeader(headerKey);
+		Assert.assertTrue(valueOfContentTypeHeader.contains(headerValue));
 	}
 
 	@Test

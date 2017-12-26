@@ -2,15 +2,18 @@
 <suite name="Rest API">
 	<test name="API TEST" preserve-order="true">
 		<parameter name="domainName" value="https://jsonplaceholder.typicode.com" />
-		<parameter name="uri" value="users" />
+		<parameter name="endpoint" value="users" />
 		<classes>
 			<class name="com.epam.restapi.restapi.TestRunnerApi">
 				<methods>
+					<parameter name="statusCode" value="200" />
 					<include name="verifyStatusCode" />
+					<parameter name="headerKey" value="content-type" />
+					<parameter name="headerValue" value="application/json; charset=utf-8" />
 					<include name="verifyResponseContentType" />
 					<include name="verifyContentTypeHeader" />
-					<include name="verifyCountOfEmployees" />	
-					<include name="printObjects" />					
+					<include name="verifyCountOfEmployees" />
+					<include name="printObjects" />
 				</methods>
 			</class>
 		</classes>
