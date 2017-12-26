@@ -71,7 +71,7 @@ public class EmployeeInformation {
 	@Override
 	public String toString() {
 		return "Class POJO [Address=" + getAddress().getCity() + ", id=" + getId() + ", Username=" + getUsername() + ", Name="
-				+ getName() + ", Phone Number=" + getPhone() + ", Email=" + getEmail() + ", Company=" + getCompany().getName()				
+				+ getName() + ", Phone Number=" + getPhone() + ", Email=" + getEmail() + ", Company=" + getCompany()!=null?getCompany().getName():""				
 				+ ", Company=" + getCompany().getCatchPhrase()
 				+ ", Company=" + getCompany().getBs()
 				+ "]";

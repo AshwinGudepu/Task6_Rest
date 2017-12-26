@@ -6,9 +6,10 @@
 		<classes>
 			<class name="com.epam.restapi.restapi.TestRunnerApi">
 				<methods>
-					<include name="checkStatusCode" />
-					<include name="checkResponseContentType" />
-					<include name="checkCountOfEmployees" />
+					<include name="verifyStatusCode" />
+					<include name="verifyResponseContentType" />
+					<include name="verifyContentTypeHeader" />
+					<include name="verifyCountOfEmployees" />	
 					<include name="printObjects" />					
 				</methods>
 			</class>
